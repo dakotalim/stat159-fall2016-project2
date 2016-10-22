@@ -56,6 +56,7 @@ install.packages('plyr')
 library(plyr)
 install.packages('gridExtra')
 library(gridExtra)
+install.packages('MASS')
 library(MASS)
 
 genderF = count(qualitativeCol, 'Gender')
@@ -99,6 +100,51 @@ dev.off()
 png("images/ethnicity-counts-barplot.png")
 barplot(table(qualitativeCol[,4]), ylim = c(0,250))
 dev.off()
+
+
+# Balance analysis, uses corrplot package
+install.packages('corrplot')
+library(corrplot)
+
+png("images/quant-corr-matrix.png")
+grid.table(round((cor(quantitativeCol)), 3))
+dev.off()
+
+png("images/quant-scatterplot.png")
+pairs(quantitativeCol)
+dev.off()
+
+# Build ANOVA models for Balance ~ (each quantitative predictor)
+incomeAOV = aov(Balance ~ Income, quantitativeCol)
+limitAOV = aov(Balance ~ Limit, quantitativeCol)
+ratingAOV = aov(Balance ~ Rating, quantitativeCol)
+cardsAOV = aov(Balance ~ Cards, quantitativeCol)
+ageAOV = aov(Balance ~ Age, quantitativeCol)
+educationAOV = aov(Balance ~ Education, quantitativeCol)
+
+# save as .RData
+models = c(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV, balanceAOV)
+save(models, "data/aov.RData")
+
+
+# conditional boxplots 
+png("images/gender-boxplot.png")
+boxplot(Balance ~ Gender, data, main = "Gender Boxplot", ylab ="Balance")
+dev.off()
+
+png("images/student-boxplot.png")
+boxplot(Balance ~ Student, data, main = "Student Boxplot", ylab ="Balance")
+dev.off()
+
+png("images/married-boxplot.png")
+boxplot(Balance ~ Married, data, main = "Married Boxplot", ylab ="Balance")
+dev.off()
+
+png("images/ethnicity-boxplot.png")
+boxplot(Balance ~ Ethnicity, data, main = "Ethnicity Boxplot", ylab ="Balance")
+dev.off()
+
+
 
 
 
