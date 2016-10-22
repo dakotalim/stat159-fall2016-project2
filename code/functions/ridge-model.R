@@ -1,16 +1,16 @@
 # load data, separate into training and test sets 
 # note that the data was randomized in pre-modeling-script.R
 data = read.csv("data/scaled-credit.csv")
-x.train = data[1:300, 2:(ncol(data)-1)]
-y.train = data[1:300, ncol(data)]
-x.test = data[301:nrow(data), 2:(ncol(data)-1)]
-y.test = data[301:nrow(data), ncol(data)]
+x.train = read.csv("data/xtrain.csv")
+y.train = read.csv("data/ytrain.csv")
+x.test = read.csv("data/xtest.csv")
+y.test = read.csv("data/ytest.csv")
 
 # uses glmnet package
 install.packages("glmnet")
 library(glmnet)
 
-# build ridge model
+# cross validate ridge model
 grid = 10^seq(10, -2, length = 100)
 ridgeCV = cv.glmnet(x.test, y.test, alpha = 0, intercept = F, standardize = F,
                     lambda = grid)
