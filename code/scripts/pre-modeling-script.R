@@ -6,8 +6,6 @@ clean_data = cbind(temp_data[ ,-1], Balance = data[,12])
 # mean centering and standardizing
 scaled_data = scale(clean_data, center = TRUE, scale = TRUE)
 
-write.csv(scaled_credit, file = "data/scaled-credit.csv")
-
 ####
 # I will now scrable the data
 # the first 300 observations are the training set
@@ -16,6 +14,8 @@ write.csv(scaled_credit, file = "data/scaled-credit.csv")
 set.seed(100)
 scaled_data = scaled_data[sample(nrow(scaled_data)),]
 
+# write data
+write.csv(scaled_credit, file = "data/scaled-credit.csv")
 
 
 

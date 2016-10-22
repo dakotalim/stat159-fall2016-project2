@@ -4,7 +4,7 @@ data = read.csv("data/scaled-credit.csv")
 linearModel = lm(Balance ~ ., data[,2:ncol(data)])
 
 # save as .RData file
-save(linearModel, "data/lm-model.RData")
+save("linearModel", "data/lm-model.RData")
 
 
 

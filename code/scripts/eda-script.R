@@ -124,7 +124,8 @@ educationAOV = aov(Balance ~ Education, quantitativeCol)
 
 # save as .RData
 models = c(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV, balanceAOV)
-save(models, "data/aov.RData")
+save(c("incomeAOV", "limitAOV", "ratingAOV", "cardsAOV", "ageAOV", "educationAOV", "balanceAOV"),
+     "data/aov-models.RData")
 
 
 # conditional boxplots 
