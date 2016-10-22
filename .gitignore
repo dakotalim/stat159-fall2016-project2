@@ -3,6 +3,8 @@
 
 # .RHistory
 *.RHistory
+*.Rproj
+*.Rproj.user
 
 # Object files
 *.o
@@ -37,3 +39,4 @@
 # Debug files
 *.dSYM/
 *.su
+.Rproj.user
