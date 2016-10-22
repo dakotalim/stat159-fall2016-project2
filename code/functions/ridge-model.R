@@ -11,6 +11,7 @@ install.packages("glmnet")
 library(glmnet)
 
 # cross validate ridge model
+set.seed(1)
 grid = 10^seq(10, -2, length = 100)
 ridgeCV = cv.glmnet(x.test, y.test, alpha = 0, intercept = F, standardize = F,
                     lambda = grid)

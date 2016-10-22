@@ -11,6 +11,7 @@ install.packages("pls")
 library(pls)
 
 # cross validate pls model
+set.seed(1)
 plsCV = plsr(y.train ~ x.train, validation = "CV")
 
 # get best model
