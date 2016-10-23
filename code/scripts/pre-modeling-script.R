@@ -1,8 +1,8 @@
 # load data
-data = read.csv("data/Credit.csv")
+data = read.csv("data/Credit.csv", row.names = 1)
 # Dummy vars
 temp_data = model.matrix(Balance ~ ., data)
-clean_data = cbind(temp_data[ ,-1], Balance = data[,12])
+clean_data = cbind(temp_data[ ,-1], Balance = data[,11])
 # mean centering and standardizing
 scaled_data = scale(clean_data, center = TRUE, scale = TRUE)
 
@@ -13,10 +13,10 @@ scaled_data = scale(clean_data, center = TRUE, scale = TRUE)
 ###
 set.seed(100)
 scaled_data = scaled_data[sample(nrow(scaled_data)),]
-x.train = data[1:300, 2:(ncol(data)-1)]
-y.train = data[1:300, ncol(data)]
-x.test = data[301:nrow(data), 2:(ncol(data)-1)]
-y.test = data[301:nrow(data), ncol(data)]
+x.train = scaled_data[1:300, 1:(ncol(scaled_data)-1)]
+y.train = scaled_data[1:300, ncol(scaled_data)]
+x.test = scaled_data[301:nrow(scaled_data), 1:(ncol(scaled_data)-1)]
+y.test = scaled_data[301:nrow(scaled_data), ncol(scaled_data)]
 
 # write data
 write.csv(scaled_data, file = "data/scaled-credit.csv")
