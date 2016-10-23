@@ -1,10 +1,10 @@
 # load data, separate into training and test sets 
 # note that the data was randomized in pre-modeling-script.R
-data = read.csv("data/scaled-credit.csv")
-x.train = read.csv("data/xtrain.csv")
-y.train = read.csv("data/ytrain.csv")
-x.test = read.csv("data/xtest.csv")
-y.test = read.csv("data/ytest.csv")
+data = as.matrix(read.csv("data/scaled-credit.csv", row.names = 1))
+x.train = as.matrix(read.csv("data/xtrain.csv", row.names = 1))
+y.train = as.matrix(read.csv("data/ytrain.csv", row.names = 1))
+x.test = as.matrix(read.csv("data/xtest.csv", row.names = 1))
+y.test = as.matrix(read.csv("data/ytest.csv", row.names = 1))
 
 # uses glmnet package
 install.packages("glmnet")
@@ -35,7 +35,7 @@ ridgeModel = glmnet(data[,2:(ncol(data) - 1)], data[,ncol(data)], standardize = 
                       intercept = F, lambda = bestRidgeLambda)
 
 # save CV output, optimal lambda, and the full model
-save(c("ridgeModel", "ridgeCV", "bestRidgeLambda"), "data/ridge-models.RData")
+save(ridgeModel, ridgeCV, bestRidgeLambda, file = "data/ridge-models.RData")
 
 
 

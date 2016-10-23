@@ -1,4 +1,4 @@
-data = read.csv("data/scaled-credit.csv")
+data = as.matrix(read.csv("data/scaled-credit.csv", row.names = 1))
 
 # build linear model, dont use 'X' column
 linearModel = lm(Balance ~ ., data)

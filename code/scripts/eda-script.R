@@ -124,7 +124,7 @@ educationAOV = aov(Balance ~ Education, quantitativeCol)
 
 # save as .RData
 models = c(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV)
-save(c("incomeAOV", "limitAOV", "ratingAOV", "cardsAOV", "ageAOV", "educationAOV"),
+save(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV,
      "data/aov-models.RData")
 
 
