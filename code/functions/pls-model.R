@@ -13,7 +13,7 @@ y.test = as.matrix(read.csv("data/ytest.csv", row.names = 1))
 
 # cross validate pls model
 set.seed(1)
-plsCV = plsr(y.train ~ x.train, validation = "CV")
+plsCV = plsr(y.train ~ x.train, scale = F, validation = "CV")
 
 # get best model
 bestPLS = plsCV$validation$PRESS
@@ -29,7 +29,7 @@ squaredError = (y.test-y.pred)^2
 cvPlsMSE = sum(squaredError)/length(squaredError)
 
 # re-fit on FULL DATA
-plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = T, ncomp = 11)
+plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = 11)
 
 # save CV output, best # pls components, and plsModel
 save(plsModel, bestPLS, plsCV, file = "data/pls-models.RData")
