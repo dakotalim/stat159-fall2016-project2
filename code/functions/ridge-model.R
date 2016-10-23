@@ -1,3 +1,7 @@
+# uses glmnet package
+install.packages("glmnet")
+library(glmnet)
+
 # load data, separate into training and test sets 
 # note that the data was randomized in pre-modeling-script.R
 data = as.matrix(read.csv("data/scaled-credit.csv", row.names = 1))
@@ -5,10 +9,6 @@ x.train = as.matrix(read.csv("data/xtrain.csv", row.names = 1))
 y.train = as.matrix(read.csv("data/ytrain.csv", row.names = 1))
 x.test = as.matrix(read.csv("data/xtest.csv", row.names = 1))
 y.test = as.matrix(read.csv("data/ytest.csv", row.names = 1))
-
-# uses glmnet package
-install.packages("glmnet")
-library(glmnet)
 
 # cross validate ridge model
 set.seed(1)
