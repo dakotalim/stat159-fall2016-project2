@@ -1,3 +1,12 @@
+install.packages('plyr')
+library(plyr)
+install.packages('gridExtra')
+library(gridExtra)
+install.packages('MASS')
+library(MASS)
+install.packages('corrplot')
+library(corrplot)
+
 # load data
 data = read.csv("data/Credit.csv")
 
@@ -52,13 +61,6 @@ dev.off
 
 # Qualitative Analysis, uses plyr, gridExtra, MASS packages
 
-install.packages('plyr')
-library(plyr)
-install.packages('gridExtra')
-library(gridExtra)
-install.packages('MASS')
-library(MASS)
-
 genderF = count(qualitativeCol, 'Gender')
 studentF = count(qualitativeCol, 'Student')
 marriedF = count(qualitativeCol, 'Married')
@@ -103,8 +105,6 @@ dev.off()
 
 
 # Balance analysis, uses corrplot package
-install.packages('corrplot')
-library(corrplot)
 
 png("images/quant-corr-matrix.png")
 grid.table(round((cor(quantitativeCol)), 3))
@@ -124,8 +124,7 @@ educationAOV = aov(Balance ~ Education, quantitativeCol)
 
 # save as .RData
 models = c(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV)
-save(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV,
-     "data/aov-models.RData")
+save(incomeAOV, limitAOV, ratingAOV, cardsAOV, ageAOV, educationAOV, file = "data/aov-models.RData")
 
 
 # conditional boxplots 
