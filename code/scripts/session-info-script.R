@@ -1,0 +1,10 @@
+library(pls)
+library(glmnet)
+library(plyr)
+library(gridExtra)
+library(MASS)
+library(corrplot)
+
+sink("./session-info.txt")
+sessionInfo()
+sink()
