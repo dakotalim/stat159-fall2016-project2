@@ -32,7 +32,7 @@ cvLassoMSE = sum(squaredError)/length(squaredError)
 
 # Re-fit on FULL DATA using bestLassoLambda
 lassoModel = glmnet(data[,1:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
-                    intercept = F, apha = 1,lambda = bestLassoLambda)
+                    intercept = F, alpha = 1, lambda = bestLassoLambda)
 
 # save CV output, optimal lambda, and the full model
 save(lassoModel, lassoCV, bestLassoLambda, cvLassoMSE, file = "data/lasso-models.RData")
