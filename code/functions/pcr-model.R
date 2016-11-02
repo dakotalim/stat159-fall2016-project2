@@ -15,6 +15,7 @@ set.seed(1)
 pcrCV = pcr(y.train ~ x.train, scale = FALSE, validation = "CV")
 
 bestPCR = pcrCV$validation$PRESS
+bestPCR = which(bestPCR == min(bestPCR))
 
 # Create plot of # components vs MSEP
 png("images/pcrCV-plot.png")
@@ -22,12 +23,12 @@ validationplot(pcrCV, val.type = "MSEP")
 dev.off()
 
 # use test sets to get test MSE
-y.pred = as.matrix(predict(pcrCV, x.test, ncomp = 11))
+y.pred = as.matrix(predict(pcrCV, x.test, ncomp = bestPCR))
 squaredError = (y.test-y.pred)^2
 cvPcrMSE = sum(squaredError)/length(squaredError)
 
 # re-fit on FULL DATA
-pcrModel = pcr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = 11)
+pcrModel = pcr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = bestPCR)
 
 # save CV output, best # pls components, and plsModel
 save(pcrModel, bestPCR, pcrCV, cvPcrMSE, file = "data/pcr-models.RData")
