@@ -30,5 +30,5 @@ cvPcrMSE = sum(squaredError)/length(squaredError)
 pcrModel = pcr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = 11)
 
 # save CV output, best # pls components, and plsModel
-save(pcrModel, bestPCR, pcrCV, file = "data/pcr-models.RData")
+save(pcrModel, bestPCR, pcrCV, cvPcrMSE, file = "data/pcr-models.RData")
 

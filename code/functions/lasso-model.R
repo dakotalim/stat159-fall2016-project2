@@ -35,7 +35,7 @@ lassoModel = glmnet(data[,2:(ncol(data) - 1)], data[,ncol(data)], standardize = 
                     intercept = F, lambda = bestLassoLambda)
 
 # save CV output, optimal lambda, and the full model
-save(lassoModel, lassoCV, bestLassoLambda, file = "data/lasso-models.RData")
+save(lassoModel, lassoCV, bestLassoLambda, cvLassoMSE, file = "data/lasso-models.RData")
 
 
 
