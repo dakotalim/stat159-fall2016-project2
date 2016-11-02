@@ -4,8 +4,9 @@ y.train = as.matrix(read.csv("data/ytrain.csv", row.names = 1))
 x.test = as.matrix(read.csv("data/xtest.csv", row.names = 1))
 y.test = as.matrix(read.csv("data/ytest.csv", row.names = 1))
 
-# build linear model, dont use 'X' column
-linearModel = lm(y.train ~ x.train)
+# build linear model, dont use 'X' column, use -1 to remove intercept
+linearModel = lm(y.train ~ x.train - 1)
+names(linearModel$coefficients) = colnames(x.train)
 linearMSE = sum(linearModel$residuals^2)/length(linearModel$residuals)
 
 

@@ -17,6 +17,7 @@ plsCV = plsr(y.train ~ x.train, scale = F, validation = "CV")
 
 # get best model
 bestPLS = plsCV$validation$PRESS
+bestPLS = which(bestPLS == min(bestPLS))
 
 # Create plot of # components vs MSEP
 png("images/plsCV-plot.png")
@@ -24,12 +25,12 @@ validationplot(plsCV, val.type = "MSEP")
 dev.off()
 
 # use test sets to get test MSE
-y.pred = as.matrix(predict(plsCV, x.test, ncomp = 11))
+y.pred = as.matrix(predict(plsCV, x.test, ncomp = bestPLS))
 squaredError = (y.test-y.pred)^2
 cvPlsMSE = sum(squaredError)/length(squaredError)
 
 # re-fit on FULL DATA
-plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = 11)
+plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = bestPLS)
 
 # save CV output, best # pls components, and plsModel
 save(plsModel, bestPLS, plsCV, cvPlsMSE, file = "data/pls-models.RData")
