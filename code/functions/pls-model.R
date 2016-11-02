@@ -34,16 +34,3 @@ plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, 
 # save CV output, best # pls components, and plsModel
 save(plsModel, bestPLS, plsCV, cvPlsMSE, file = "data/pls-models.RData")
 
-
-
-
-
-
-
-
-
-
-
-
-
-

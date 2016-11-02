@@ -11,35 +11,3 @@ linearMSE = sum(linearModel$residuals^2)/length(linearModel$residuals)
 
 # save as .RData file
 save(linearModel, linearMSE, file = "data/lm-model.RData")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

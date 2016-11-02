@@ -1,10 +1,11 @@
 install.packages('plyr')
-library(plyr)
-install.packages('gridExtra')
-library(gridExtra)
-install.packages('MASS')
-library(MASS)
 install.packages('corrplot')
+install.packages('MASS')
+install.packages('gridExtra')
+
+library(plyr)
+library(gridExtra)
+library(MASS)
 library(corrplot)
 
 # load data

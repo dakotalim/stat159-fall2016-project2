@@ -37,26 +37,3 @@ ridgeModel = glmnet(data[,2:(ncol(data) - 1)], data[,ncol(data)], standardize = 
 # save CV output, optimal lambda, and the full model
 save(ridgeModel, ridgeCV, bestRidgeLambda, cvRidgeMSE, file = "data/ridge-models.RData")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
