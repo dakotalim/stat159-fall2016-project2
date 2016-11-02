@@ -31,7 +31,7 @@ squaredError = (y.test - y.pred)^2
 cvRidgeMSE = sum(squaredError)/length(squaredError)
 
 # Re-fit on FULL DATA using bestRidgeLambda
-ridgeModel = glmnet(data[,2:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
+ridgeModel = glmnet(data[,1:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
                       intercept = F, lambda = bestRidgeLambda)
 
 # save CV output, optimal lambda, and the full model

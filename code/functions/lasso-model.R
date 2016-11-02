@@ -31,7 +31,7 @@ squaredError = (y.test - y.pred)^2
 cvLassoMSE = sum(squaredError)/length(squaredError)
 
 # Re-fit on FULL DATA using bestLassoLambda
-lassoModel = glmnet(data[,2:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
+lassoModel = glmnet(data[,1:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
                     intercept = F, lambda = bestLassoLambda)
 
 # save CV output, optimal lambda, and the full model
