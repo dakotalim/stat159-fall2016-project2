@@ -32,7 +32,7 @@ cvRidgeMSE = sum(squaredError)/length(squaredError)
 
 # Re-fit on FULL DATA using bestRidgeLambda
 ridgeModel = glmnet(data[,1:(ncol(data) - 1)], data[,ncol(data)], standardize = F,
-                      intercept = F, lambda = bestRidgeLambda)
+                      intercept = F, alpha = 0, lambda = bestRidgeLambda)
 
 # save CV output, optimal lambda, and the full model
 save(ridgeModel, ridgeCV, bestRidgeLambda, cvRidgeMSE, file = "data/ridge-models.RData")
