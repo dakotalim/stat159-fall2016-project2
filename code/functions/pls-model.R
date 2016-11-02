@@ -32,7 +32,7 @@ cvPlsMSE = sum(squaredError)/length(squaredError)
 plsModel = plsr(Balance ~ ., data = data.frame(data[,1:ncol(data)]), scale = F, ncomp = 11)
 
 # save CV output, best # pls components, and plsModel
-save(plsModel, bestPLS, plsCV, file = "data/pls-models.RData")
+save(plsModel, bestPLS, plsCV, cvPlsMSE, file = "data/pls-models.RData")
 
 
 
