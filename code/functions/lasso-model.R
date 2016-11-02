@@ -22,7 +22,7 @@ bestLassoLambda = lassoCV$lambda.min
 
 # plot errors in terms of lambda
 png("images/lassoCV-plot.png")
-plot(lassoCV)
+plot(lassoCV, main = "Lasso CV-Lambda MSE")
 dev.off()
 
 # Use CV'ed lambda value on the test sets to get cvLassoMSE (test MSE)

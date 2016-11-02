@@ -19,7 +19,7 @@ bestPCR = which(bestPCR == min(bestPCR))
 
 # Create plot of # components vs MSEP
 png("images/pcrCV-plot.png")
-validationplot(pcrCV, val.type = "MSEP")
+validationplot(pcrCV, val.type = "MSEP", main = "PCR CV-Component MSEP")
 dev.off()
 
 # use test sets to get test MSE

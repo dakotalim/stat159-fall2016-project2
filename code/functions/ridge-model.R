@@ -22,7 +22,7 @@ bestRidgeLambda = ridgeCV$lambda.min
 
 # plot errors in terms of lambda
 png("images/ridgeCV-plot.png")
-plot(ridgeCV)
+plot(ridgeCV, main = "Ridge CV-Lambda MSE")
 dev.off()
 
 # Use CV'ed lambda value on the test sets to get cvRidgeMSE (test MSE)

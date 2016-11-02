@@ -21,7 +21,7 @@ bestPLS = which(bestPLS == min(bestPLS))
 
 # Create plot of # components vs MSEP
 png("images/plsCV-plot.png")
-validationplot(plsCV, val.type = "MSEP")
+validationplot(plsCV, val.type = "MSEP", main = "PLS CV-Component MSEP")
 dev.off()
 
 # use test sets to get test MSE
