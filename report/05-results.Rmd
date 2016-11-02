@@ -1,0 +1,14 @@
+---
+output: html_document
+---
+Next we consider the training set mean squared errors of each model, to better address overall model effectiveness:
+```{r, results = "asis", echo = FALSE}
+# may add this chunk to RESULTS section instead of ANALYSIS
+Model = c("OLS", "Ridge", "Lasso", "PCR", "PLS")
+TestMSE = c(linearMSE, cvRidgeMSE, cvLassoMSE, cvPcrMSE, cvPlsMSE)
+mseDF = data.frame(Model, TestMSE)
+mseTable = xtable(mseDF, caption = "Model Test MSE", digits = 5)
+print(mseTable, type = "html", caption.placement = "top")
+```
+
+From this it is clear that OLS was the worst method, which we expected since our data clearly has correlated regressors (ex: Age and Education). The next best methods were the shrinkage methods, which yielded test MSEs about ~.007 better than OLS. The best methods were the dimmension reduction methods, which yielded test MSEs of about ~.015 better than OLS.
