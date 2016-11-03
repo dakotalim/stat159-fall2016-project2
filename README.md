@@ -8,30 +8,30 @@ The project is done in R, managed through git and github and incorporates markdo
 The structure of this project is as follows:  
 
 stat159-fall2016-project2/  
-	README.md  
-	Makefile  
-	LICENSE  
-	session-info.txt  
-	.gitignore  
-	code/  
-		functions/  ...  
-		scripts/ ...  
-		tests/ ...  
-	data/  
-		Credit.csv  ...   
-	images/ ...   
-	report/    
-		report.pdf  
-		report.Rmd  
-		sections/  
-			00-abstract.Rmd  
-			01-introduction.Rmd  
-			02-data.Rmd  
-			03-methods.Rmd  
-			04-analysis.Rmd  
-			05-results.Rmd  
-			06-conclusions.Rmd  
-	slides/ ...  
+...README.md  
+...Makefile  
+...LICENSE  
+...session-info.txt  
+...gitignore  
+...code/  
+......functions/  ...  
+......scripts/ ...  
+......tests/ ...  
+...data/  
+......Credit.csv  ...   
+...images/ ...   
+...report/    
+......report.pdf  
+......report.Rmd  
+......sections/  
+.........00-abstract.Rmd  
+.........01-introduction.Rmd  
+.........02-data.Rmd  
+.........03-methods.Rmd  
+.........04-analysis.Rmd  
+.........05-results.Rmd  
+.........06-conclusions.Rmd  
+...slides/ ...  
 
 
 All the code is store in the code/ folder which is subdivided into scripts, functions and tests.
