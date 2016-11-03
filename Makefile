@@ -50,6 +50,7 @@ data:
 
 session: $(SESscript) 
 	Rscript $(SESscript)
+	bash session.sh
 
 $(REPpdf): $(REPrmd) $(REGdata) $(IMAGES) 
 	Rscript -e "library(rmarkdown);render('$(REPrmd)')"
