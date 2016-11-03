@@ -10,18 +10,18 @@ library(Matrix)
 # change to load from TOP DIRECTORY when done #
 ###############################################
 
-load(file = "../data/lm-model.RData")
-load(file = "../data/ridge-models.RData")
-load(file = "../data/lasso-models.RData")
-load(file = "../data/pls-models.RData")
-load(file = "../data/pcr-models.RData")
+load(file = "../../data/lm-model.RData")
+load(file = "../../data/ridge-models.RData")
+load(file = "../../data/lasso-models.RData")
+load(file = "../../data/pls-models.RData")
+load(file = "../../data/pcr-models.RData")
 
 # read in original data, tests and training sets as well
-data = as.matrix(read.csv("../data/scaled-credit.csv", row.names = 1))
-x.train = as.matrix(read.csv("../data/xtrain.csv", row.names = 1))
-y.train = as.matrix(read.csv("../data/ytrain.csv", row.names = 1))
-x.test = as.matrix(read.csv("../data/xtest.csv", row.names = 1))
-y.test = as.matrix(read.csv("../data/ytest.csv", row.names = 1))
+data = as.matrix(read.csv("../../data/scaled-credit.csv", row.names = 1))
+x.train = as.matrix(read.csv("../../data/xtrain.csv", row.names = 1))
+y.train = as.matrix(read.csv("../../data/ytrain.csv", row.names = 1))
+x.test = as.matrix(read.csv("../../data/xtest.csv", row.names = 1))
+y.test = as.matrix(read.csv("../../data/ytest.csv", row.names = 1))
 ```
 #Conclusion
 Over the course of this project we have modeled the `Credit.csv` data in several ways. We began by cleaning and preparing the data, analyzing individual regressors (qualitative and quantitative) for any interesting facts, centering and standardizing the data, as well as factoring out levels of qualitative variables (i.e `Married` became `MarriedYes` with 0 for a `No` response and 1 for `Yes`). In preparation for building future models, we also partitioned the data into test and training sets. We chose not to cross-validate the linear model since it is simply a benchmark, we fully expect our models to outpreform this.

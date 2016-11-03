@@ -26,11 +26,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Analysis ##
-```{r }
+```{r child = 'sections/04-analysis.Rmd'}
 ```
 ## Results ##
-```{r }
+```{r child = 'sections/05-results.Rmd'}
 ```
 ## Conclusion ##
-```{r }
+```{r child = 'sections/06-conclusions.Rmd'}
 ```
