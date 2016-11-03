@@ -1,0 +1,36 @@
+---
+title: "Project 2 - Predictive Modeling for Stat 159"
+author: "Dakota Lim & Kartikeya Gupta"
+date: "November 2, 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract ##
+```{r child = 'sections/00-abstract.Rmd'}
+```
+
+## Introduction ##
+```{r child = 'sections/01-introduction.Rmd'}
+```
+
+## Data ##
+```{r child = 'sections/02-data.Rmd'}
+```
+
+## Method ##
+```{r child = 'sections/03-method.Rmd'}
+```
+
+## Analysis ##
+```{r }
+```
+## Results ##
+```{r }
+```
+## Conclusion ##
+```{r }
+```

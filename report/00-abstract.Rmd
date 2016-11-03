@@ -1,5 +1,0 @@
----
-output: pdf_document
----
-
-This report, which is an extension to what we have learnt in class, explores the relationship between "Balance" (average credit card debt) and a set of variables given in the Credit data set. It closely follows the analysis done in Chapter 6 - Linear Model Selection and Regularization from the book An Introduction to Statistical Machine Learning by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani. The main idea of this report is to fit a predictive model that can help decribe the relationship better.
