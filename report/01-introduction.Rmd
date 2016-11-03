@@ -1,0 +1,6 @@
+---
+output: pdf_document
+---
+
+This report explores the relation between the average credit card debt across people and a set of variables that include credit limit, age, income, ethnicity etc. While still sticking to a linear model, we do however, explore models other than the OLS. To create this predictive model, we will be testing two shrinkage reduction methods - Ridge and Lasso, and two dimension reduction methods - Partial Least Squares and Principle Component Analysis. The final model for prediction will be that which explains the most of variation in the data for the given least Mean Squared Error.
+

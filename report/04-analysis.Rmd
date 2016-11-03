@@ -24,26 +24,6 @@ y.train = as.matrix(read.csv("../data/ytrain.csv", row.names = 1))
 x.test = as.matrix(read.csv("../data/xtest.csv", row.names = 1))
 y.test = as.matrix(read.csv("../data/ytest.csv", row.names = 1))
 ```
-Over the course of this project we built a total of five models:
-
-* An OLS model on the training data
-* A Ridge model, using 10-fold cross validation to select lambda, on the training data
-* A Lasso model, using 10-fold cross validation to select lambda, on the training data
-* A PCR model, using 10-fold cross validation to select the number of components, on the training data
-* A PLSR model, using 10-fold cross validation to select the number of components, on the training data
-
-Each model was built using a scaled and centered version of the raw data. To ensure consistency we divide the data into test/training sets once and use the same sets to train and test each model.
-
-Each model (excluding OLS) required a tuning parameter be definied, lambda values for Ridge and Lasso, and the number of components for PCR and PLS. To decide thse tuning parameters we used cross validation, below are the plots of prediction intervals for the MSE of the Ridge and Lasso methods as a function of different lambda values:
-
-![Ridge Lambda Plot](../images/ridgeCV-plot.png)
-![Lasso Lambda Plot](../images/lassoCV-plot.png)
-
-Next we consider the plots for MSEP as a function of the number of components taken in the PCR and PLS methods:
-![PCR Lambda Plot](../images/pcrCV-plot.png)
-![PLS Lambda Plot](../images/plsCV-plot.png)
-
-We simply take the minimal value (lambda or #-components depending on the model) of each plot and use that value as the tuning parameter for our full models.
 
 Below is a table of the regression coefficients produced by each model on the full data along with a plot of all model coefficients:
 
@@ -70,7 +50,6 @@ legend("top",legend = c("lm", "ridge", "lasso", "pca", "pls"),
 text(seq(1, 11, by=1), par("usr")[3] - 0.2, labels = colnames(data)[1:11], srt = 75, pos = 1, xpd = TRUE, cex = .65)
 
 ```
-
 
 The majority of the models produce similar values for each regressor, with the obvious exception of the ridge and lasso methods. The lasso coefficients for `Education`, `GenderFemale`, `MarriedYes`, `EthnicityAsian`, and `EthnicityCaucasian` are all 0, this is a direct result of the lasso penalty term being the L-1 norm of the Betas scaled by some lambda value. The ridge method appears to be giving much lower estimates of the `Limit` coefficient and higher values of the `Rating` coefficient.
 
