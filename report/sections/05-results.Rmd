@@ -1,7 +1,7 @@
 ---
 output: pdf_document
 ---
-#Results
+
 ```{r, echo=F}
 library(xtable)
 library(Matrix)
@@ -23,16 +23,21 @@ x.train = as.matrix(read.csv("../../data/xtrain.csv", row.names = 1))
 y.train = as.matrix(read.csv("../../data/ytrain.csv", row.names = 1))
 x.test = as.matrix(read.csv("../../data/xtest.csv", row.names = 1))
 y.test = as.matrix(read.csv("../../data/ytest.csv", row.names = 1))
+linearMSE = round(linearMSE,4)
+cvRidgeMSE = round(cvRidgeMSE,4)
+cvLassoMSE = round(cvLassoMSE,4)
+cvPcrMSE = round(cvPcrMSE,4)
+cvPlsMSE = round(cvPlsMSE,4)
 ```
 Next we consider the training set mean squared errors of each model, to better address overall model effectiveness:
-```{r, results = "asis", echo = FALSE}
+```{r, results = "asis", eval=TRUE, echo=FALSE, message=FALSE}
 options(xtable.comment = FALSE)
 # may add this chunk to RESULTS section instead of ANALYSIS
 Model = c("OLS", "Ridge", "Lasso", "PCR", "PLS")
 TestMSE = c(linearMSE, cvRidgeMSE, cvLassoMSE, cvPcrMSE, cvPlsMSE)
 mseDF = cbind(Model, TestMSE)
 mseTable = xtable(mseDF, caption = "Model Test MSE", digits = 5)
-print(mseTable, type = "latex", caption.placement = "top")
+print(mseTable, type = "latex", caption.placement = "top", comment = FALSE)
 ```
 
 From this it is clear that OLS was the worst method, which we expected since our data clearly has correlated regressors (ex: Age and Education). The best methods were the ridge and lasso shrinkage methods, which yielded test MSEs of `r cvRidgeMSE` and `r cvLassoMSE` respectively. The next best methods were the PCA and PLS dimmension reduction methods, which yielded test MSEs of `r cvPcrMSE` and `r cvPcrMSE`.

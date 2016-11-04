@@ -34,3 +34,29 @@ Next we consider the plots for MSEP as a function of the number of components ta
 \end{center}
 
 We simply take the minimal value (lambda or #-components depending on the model) of each plot and use that value as the tuning parameter for our full models.
+
+Before we begin analyzing the coefficients from the regression models, we first take a look at the data. 
+
+\begin{center} 
+\includegraphics[width=0.30\textwidth]{../images/balance-plots.png} \includegraphics[width=0.30\textwidth]{../images/limit-plots.png}
+\includegraphics[width=0.30\textwidth]{../images/cards-plots.png}
+\end{center}
+
+\begin{center} 
+\includegraphics[width=0.23\textwidth]{../images/rating-plots.png} \includegraphics[width=0.23\textwidth]{../images/age-plots.png}
+\includegraphics[width=0.23\textwidth]{../images/education-plots.png}
+\includegraphics[width=0.23\textwidth]{../images/income-plots.png}
+\end{center}
+
+\begin{center} 
+\includegraphics[width=0.23\textwidth]{../images/ethnicity-boxplot.png} \includegraphics[width=0.23\textwidth]{../images/gender-boxplot.png}
+\includegraphics[width=0.23\textwidth]{../images/student-boxplot.png}
+\includegraphics[width=0.23\textwidth]{../images/married-boxplot.png}
+\end{center}
+
+Now to understand the relationship between each variable, we study the correlation matrix.
+\begin{center} 
+\includegraphics[width=0.5\textwidth]{../images/quant-scatterplot.png} 
+\end{center}
+
+

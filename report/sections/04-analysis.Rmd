@@ -1,7 +1,9 @@
 ---
 output: pdf_document
 ---
-```{r, echo=F}
+
+
+```{r eval=TRUE, echo=FALSE, message=FALSE}
 library(xtable)
 library(Matrix)
 ###############################################
@@ -26,7 +28,7 @@ y.test = as.matrix(read.csv("../../data/ytest.csv", row.names = 1))
 
 Below is a table of the regression coefficients produced by each model on the full data along with a plot of all model coefficients:
 
-```{r xtable, results = "asis", echo = F}
+```{r xtable, results = "asis", echo = FALSE, eval=TRUE, message=FALSE}
 ridgeCoefs = as.matrix(ridgeModel$beta)
 lassoCoefs = as.matrix(lassoModel$beta)
 plsCoefs = as.matrix(plsModel$coefficients[,,bestPLS])
@@ -35,7 +37,7 @@ lmCoefs = as.matrix(linearModel$coefficients)
 coefMatrix = cbind(lmCoefs, ridgeCoefs, lassoCoefs, plsCoefs, pcrCoefs)
 colnames(coefMatrix) = c("lm", "ridge", "lasso", "pls", "pcr")
 coefTable = xtable(coefMatrix, caption = "Model Coefficients")
-print(coefTable, type = "latex", caption.placement = "top")
+print(coefTable, type = "latex", caption.placement = "top", comment = FALSE)
 
 
 plot(coefMatrix[,1], type = "b", col = "Blue", xaxt = "n", cex = .5, pch = 10, xlab = "", ylab = "Value")
