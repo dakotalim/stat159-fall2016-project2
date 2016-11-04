@@ -1,3 +1,5 @@
+# Exploratory Data Analysis Script - Used for understanding data before modelling.
+# Creates summaries and plots basic graphs.
 
 library(plyr)
 library(gridExtra)

@@ -1,4 +1,4 @@
-# uses glmnet package
+# Script to run the LASSO Regression.
 
 library(glmnet)
 

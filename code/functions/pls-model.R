@@ -1,4 +1,5 @@
-# uses pls package
+# Script to run the PARTIAL LEAST SQUARES Regression.
+
 library(pls)
 
 # load data, separate into training and test sets 

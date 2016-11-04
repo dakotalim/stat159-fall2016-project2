@@ -1,4 +1,5 @@
-# uses glmnet package
+# Script to run the RIDGE Regression.
+
 library(glmnet)
 
 # load data, separate into training and test sets 

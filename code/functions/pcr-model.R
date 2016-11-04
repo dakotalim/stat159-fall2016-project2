@@ -1,4 +1,4 @@
-# uses pls package
+# Script to run the PRINCIPLE COMPONENT ANALYSIS Regression.
 
 library(pls)
 

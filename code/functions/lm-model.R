@@ -1,3 +1,5 @@
+# Script to run the OLS Regression.
+
 data = as.matrix(read.csv("data/scaled-credit.csv", row.names = 1))
 x.train = as.matrix(read.csv("data/xtrain.csv", row.names = 1))
 y.train = as.matrix(read.csv("data/ytrain.csv", row.names = 1))

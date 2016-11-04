@@ -4,11 +4,6 @@ output: pdf_document
 ```{r, echo=F}
 library(xtable)
 library(Matrix)
-###############################################
-# temporarily load data from REPORT DIRECTORY #
-# this is for initially writting the file     #
-# change to load from TOP DIRECTORY when done #
-###############################################
 
 load(file = "../../data/lm-model.RData")
 load(file = "../../data/ridge-models.RData")

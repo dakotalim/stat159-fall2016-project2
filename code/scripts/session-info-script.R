@@ -1,3 +1,5 @@
+# Script to record information about the session.
+
 library(pls)
 library(glmnet)
 library(plyr)

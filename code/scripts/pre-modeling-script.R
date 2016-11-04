@@ -1,3 +1,6 @@
+# Pre-modeling script that massages the data into format that can be used for analysis.
+# Creates scaled data and training-test sets of data.
+
 # load data
 data = read.csv("data/Credit.csv", row.names = 1)
 # Dummy vars
