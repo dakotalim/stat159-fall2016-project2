@@ -11,9 +11,9 @@ EDAscript = code/scripts/eda-script.R
 
 SESscript = code/scripts/session-info-script.R
 
-.phony: all data tests eda ols ridge lasso pcr plsr regression report slides session clean cleanall
+.phony: all data tests eda regressions ols ridge lasso pcr plsr regression report slides session clean cleanall
 
-all: eda regressions report
+all: eda premodeling regressions report
 
 eda: $(EDAscript) $(DATAraw)
 	Rscript $(EDAscript) $(DATAraw)
@@ -28,7 +28,7 @@ regressions:
 	make ridge
 	make lasso
 	make pcr
-	make pslr
+	make pls
 
 ols: code/functions/lm-model.R $(DATAscaled)
 	Rscript code/functions/lm-model.R $(DATAscaled)
@@ -42,8 +42,8 @@ lasso: code/functions/lasso-model.R $(DATAscaled)
 pcr: code/functions/pcr-model.R $(DATAscaled)
 	Rscript code/functions/pcr-model.R $(DATAscaled)
 
-pslr: code/functions/pslr-model.R $(DATAscaled)
-	Rscript code/functions/pslr-model.R $(DATAscaled)
+pls: code/functions/pls-model.R $(DATAscaled)
+	Rscript code/functions/pls-model.R $(DATAscaled)
 
 data:
 	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv > $(DATAraw)
@@ -52,11 +52,16 @@ session: $(SESscript)
 	Rscript $(SESscript)
 	bash session.sh
 
-$(REPpdf): $(REPrmd) $(REGdata) $(IMAGES) 
+report: $(REPrmd) $(REGdata) $(IMAGES) 
 	Rscript -e "library(rmarkdown);render('$(REPrmd)')"
 
-tests: code/functions/regression-functions.R code/tests/test-regression.R
-	Rscript code/test-that.r
+slides: slides/Project2-Slides.rmd
+	Rscript -e "library(markdown);render(slides/Project2-Slides.rmd)"
+
+tests: code/functions/*.R code/scripts/*.R code/tests/*.R
+	Rscript code/test/test-eda-script.R
+	Rscript code/test/test-ridge.R
+	Rscript code/test/test-lasso.R
 
 clean: 
 	rm $(REPpdf)

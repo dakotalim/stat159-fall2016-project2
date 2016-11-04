@@ -2,7 +2,7 @@
 info=session-info.txt
 
 # Record Session Information
-echo "Session Info" > $info
+echo "Session Info" >> $info
 echo >> $info
 
 # Version of Make

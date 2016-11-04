@@ -1,7 +1,3 @@
-install.packages('plyr')
-install.packages('corrplot')
-install.packages('MASS')
-install.packages('gridExtra')
 
 library(plyr)
 library(gridExtra)

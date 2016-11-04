@@ -1,5 +1,4 @@
 # uses pls package
-install.packages("pls")
 library(pls)
 
 # load data, separate into training and test sets 

@@ -1,5 +1,5 @@
 # ridge tests
-# setwd("Desktop/Dakota/stat159-fall2016-project2")
+
 library(testthat)
 source("code/functions/ridge-model.R")
 

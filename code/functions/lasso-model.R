@@ -1,5 +1,5 @@
 # uses glmnet package
-install.packages("glmnet")
+
 library(glmnet)
 
 # load data, separate into training and test sets 
