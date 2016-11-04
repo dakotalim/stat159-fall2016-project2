@@ -28,8 +28,8 @@ context("ensure models are built correctly")
 test_that("cvPlsMSE is a real number",{
   expect_is(cvPlsMSE, "numeric")
 })
-test_that("bestPls is a real number",{
-  expect_is(bestPls, "numeric")
+test_that("bestPLS is a real number",{
+  expect_is(bestPLS, "numeric")
 })
 
 
