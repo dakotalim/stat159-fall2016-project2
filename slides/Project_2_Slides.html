@@ -667,12 +667,6 @@ To compare the coefficients of the different models graphically:
 
 <table border="1">
 
-<caption align="top">
-
-Model Test MSE
-
-</caption>
-
 <tr>
 
 <th>
@@ -807,7 +801,213 @@ PLS
 
 </center>
 
-<p>Clearly, OLS is the worst model to use. And Ridge seems to work best with our data.</p></article></slide>
+<p>Clearly, OLS is the worst model to use. And Ridge seems to work best with our data.</p>
+
+</article></slide><slide class=''><hgroup><h2>Result - Continued</h2></hgroup><article  id="result---continued">
+
+<left>
+
+<table border="1">
+
+<tr>
+
+<th>
+
+</th>
+
+<th>
+
+Ridge
+
+</th>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Income
+
+</td>
+
+<td align="right">
+
+-0.57
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Limit
+
+</td>
+
+<td align="right">
+
+0.72
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Rating
+
+</td>
+
+<td align="right">
+
+0.59
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Cards
+
+</td>
+
+<td align="right">
+
+0.04
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Age
+
+</td>
+
+<td align="right">
+
+-0.03
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+Education
+
+</td>
+
+<td align="right">
+
+-0.01
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+GenderFemale
+
+</td>
+
+<td align="right">
+
+-0.01
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+StudentYes
+
+</td>
+
+<td align="right">
+
+0.27
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+MarriedYes
+
+</td>
+
+<td align="right">
+
+-0.01
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+EthnicityAsian
+
+</td>
+
+<td align="right">
+
+0.02
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="right">
+
+EthnicityCaucasian
+
+</td>
+
+<td align="right">
+
+0.01
+
+</td>
+
+</tr>
+
+</table>
+
+<p></left></p>
+
+</article></slide><slide class=''><hgroup><h2>Conclusion</h2></hgroup><article  id="conclusion">
+
+<p>Out of all the models tested, RIDGE seems to work the best for our analysis. Given that it is a shrinkage method, we notice that most coefficients except &quot;Income&quot;, &quot;Rating&quot;, &quot;Limit&quot; and &quot;Student Status&quot; have been zeroed out. We also notice that within these four, <em>Income</em> happens to be negatively affecting Balance which is understandable from an economic standpoint as more income would lead to less debt. The other are positive as given a higher <em>rating</em> and a higher <em>limit</em>, one can take on more debt. And finally, being a <em>student</em> with no income can lead to having higher debt on average than someone who is not a student.</p>
+
+<p>Finally, if one had to predict how such variables might affect ones Balance, this Ridge model would be best at making this predicition.</p></article></slide>
 
 
   <slide class="backdrop"></slide>

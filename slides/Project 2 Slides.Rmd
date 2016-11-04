@@ -137,14 +137,33 @@ To answer the question and to better address overall model effectiveness, we loo
 <center>
 ```{r, results = "asis", eval=TRUE, echo=FALSE, message=FALSE}
 options(xtable.comment = FALSE)
-# may add this chunk to RESULTS section instead of ANALYSIS
+
 Model = c("OLS", "Ridge", "Lasso", "PCR", "PLS")
 TestMSE = c(linearMSE, cvRidgeMSE, cvLassoMSE, cvPcrMSE, cvPlsMSE)
 mseDF = cbind(Model, TestMSE)
-mseTable = xtable(mseDF, caption = "Model Test MSE", digits = 5)
-print(mseTable, type = "html", caption.placement = "top", comment = FALSE)
+mseTable = xtable(mseDF, digits = 5)
+print(mseTable, type = "html", comment = FALSE)
 ```
 </center>  
    
 Clearly, OLS is the worst model to use. And Ridge seems to work best with our data.
+
+## Result - Continued
+<left>
+```{r, results = "asis", eval=TRUE, echo=FALSE, message=FALSE}
+options(xtable.comment = FALSE)
+coefMatrix = cbind(ridgeCoefs)
+colnames(coefMatrix) = c("Ridge")
+coefTable = xtable(coefMatrix)
+print(coefTable, type = "html", comment = FALSE,  hline.after = c(1:10))
+
+```
+</left>
+
+## Conclusion
+
+Out of all the models tested, RIDGE seems to work the best for our analysis.
+Given that it is a shrinkage method, we notice that most coefficients except "Income", "Rating", "Limit" and "Student Status" have been zeroed out. We also notice that within these four, *Income* happens to be negatively affecting Balance which is understandable from an economic standpoint as more income would lead to less debt. The other are positive as given a higher *rating* and a higher *limit*, one can take on more debt. And finally, being a *student* with no income can lead to having higher debt on average than someone who is not a student.
+
+Finally, if one had to predict how such variables might affect one's Balance, this Ridge model would be best at making this predicition.
 
