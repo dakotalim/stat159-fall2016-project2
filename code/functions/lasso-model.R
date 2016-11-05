@@ -1,3 +1,7 @@
+#' @Title Lasso Model
+#' @param data taken after eda-script is run
+#' @return data/lasso-models.RData
+#'
 # Script to run the LASSO Regression.
 
 library(glmnet)

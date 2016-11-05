@@ -1,3 +1,7 @@
+#' @Title Ridge Model
+#' @param data taken after eda-script is run
+#' @return data/ridge-models.RData
+#'
 # Script to run the RIDGE Regression.
 
 library(glmnet)

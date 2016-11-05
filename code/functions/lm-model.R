@@ -1,3 +1,7 @@
+#' @Title Linear Model
+#' @param data taken after eda-script is run
+#' @return data/lm-model.RData
+#'
 # Script to run the OLS Regression.
 
 data = as.matrix(read.csv("data/scaled-credit.csv", row.names = 1))

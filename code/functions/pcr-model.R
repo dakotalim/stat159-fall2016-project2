@@ -1,3 +1,7 @@
+#' @Title PCR Model
+#' @param data taken after eda-script is run
+#' @return data/pcr-models.RData
+#'
 # Script to run the PRINCIPLE COMPONENT ANALYSIS Regression.
 
 library(pls)

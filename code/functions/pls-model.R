@@ -1,3 +1,7 @@
+#' @Title PLS Model
+#' @param data taken after eda-script is run
+#' @return data/pls-models.RData
+#'
 # Script to run the PARTIAL LEAST SQUARES Regression.
 
 library(pls)
