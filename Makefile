@@ -4,12 +4,8 @@ REGdata = data/*.RData
 IMAGES = images/*.png
 DATAraw = data/Credit.csv
 DATAscaled = data/scaled-credit.csv
-
 MODscript = code/scripts/pre-modeling-script.R
-
 EDAscript = code/scripts/eda-script.R
-
-SESscript = code/scripts/session-info-script.R
 
 .phony: all data tests eda regressions ols ridge lasso pcr plsr regression report slides session clean cleanall
 
@@ -48,8 +44,7 @@ pls: code/functions/pls-model.R $(DATAscaled)
 data:
 	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv > $(DATAraw)
 
-session: $(SESscript) 
-	Rscript $(SESscript)
+session: session.sh
 	bash session.sh
 
 report: $(REPrmd) $(REGdata) $(IMAGES) 
@@ -59,9 +54,10 @@ slides: slides/Project2-Slides.rmd
 	Rscript -e "library(markdown);render(slides/Project2-Slides.rmd)"
 
 tests: code/functions/*.R code/scripts/*.R code/tests/*.R
-	Rscript code/test/test-eda-script.R
-	Rscript code/test/test-ridge.R
-	Rscript code/test/test-lasso.R
+	Rscript code/tests/test-pcr.R
+	Rscript code/tests/test-pls.R
+	Rscript code/tests/test-ridge.R
+	Rscript code/tests/test-lasso.R
 
 clean: 
 	rm $(REPpdf)

@@ -33,11 +33,11 @@ The qualitative variables are: Gender, Student Status, Married and Ethinicity.
 
 Given the _Credit_ data from the ISLR website, we have done some pre-modeling to massage it into a usable framework. 
 
-1. We have converted the qualitative variables in quantitative dummies.
+1. We have converted the qualitative variables into quantitative dummies.
 2. Mean centered the variables to 0
 3. Standardized the variables to Standard Deviation of 1
 
-We do this because we have used multiple regression models which would given different coefficient values for the same regressors. Keeping in mind the idea of apple-to-apple comparison, we have regularized these variables so the coefficients are all of the same scale. Hence, making it easier to interpret.
+We do this because we have used multiple regression models which would give different coefficient values for the same regressors. Keeping in mind the idea of apples-to-apples comparison, we have regularized these variables so the coefficients are all of the same scale. Hence, making it easier to interpret.
 
 
 ## Method - Continued
@@ -78,7 +78,7 @@ y.train = as.matrix(read.csv("../data/ytrain.csv", row.names = 1))
 x.test = as.matrix(read.csv("../data/xtest.csv", row.names = 1))
 y.test = as.matrix(read.csv("../data/ytest.csv", row.names = 1))
 ```
-Below is a table of the regression coefficients produced by each model on the full data along with a plot of all model coefficients:
+Below is a table of the regression coefficients produced by each model on the whole dataset:
 
 ```{r xtable, results = "asis", echo = FALSE, eval=TRUE, message=FALSE}
 ridgeCoefs = as.matrix(ridgeModel$beta)
@@ -110,7 +110,7 @@ text(seq(1, 11, by=1), par("usr")[3] - 0.2, labels = colnames(data)[1:11], srt =
 </center>
 ## Analysis - Continued
 
-Looking at the table and the graphs, we can see that the models reduce some of the coefficients to zero. This is because we have used the *shrinkage* and *dimension reduction* methods.
+Looking at the table and at the graphs, we can see that the models have reduced some of the coefficients to zero. This is because we have used the *shrinkage* and *dimension reduction* methods.
 
 For example:
 The `Education`, `GenderFemale`, `MarriedYes`, `EthnicityAsian`, and `EthnicityCaucasian` are all *meaningless* in our lasso regression. Therefore, by reducing the number of regressors in our model, Lasso allows us to easily interpret the results and increases the overall effectiveness of our model.
@@ -119,7 +119,7 @@ Ridge does the same with a different statistical formula (i.e, different penalty
 
 ## Analysis - Continued
 
-Partical Component Regression (PCR) and Partial Least Squares (PLS) methods produce nearly identical coefficeints, which we expect since they both use principle components effectively remove the correlation between any given regressors. Furthermore, PCR and PLS use similar numbers of components (10 and 9 respectively).
+Partical Component Regression (PCR) and Partial Least Squares (PLS) methods produce nearly identical coefficients, which we expect since they both use principle components effectively remove the correlation between any given regressors. Furthermore, PCR and PLS use similar numbers of components (10 and 9 respectively).
 
 Now having looked at the coefficients, how do we decide what model to use?
 
@@ -132,7 +132,7 @@ cvLassoMSE = round(cvLassoMSE,4)
 cvPcrMSE = round(cvPcrMSE,4)
 cvPlsMSE = round(cvPlsMSE,4)
 ```
-To answer the question and to better address overall model effectiveness, we look at our main criteria: MSE
+To answer the question and to better address the overall model effectiveness, we look at our main criteria: MSE
 
 <center>
 ```{r, results = "asis", eval=TRUE, echo=FALSE, message=FALSE}
@@ -146,7 +146,8 @@ print(mseTable, type = "html", comment = FALSE)
 ```
 </center>  
    
-Clearly, OLS is the worst model to use. And Ridge seems to work best with our data.
+Ridge seems to work best with our data.
+And clearly, OLS is the worst model to use.
 
 ## Result - Continued
 <left>
@@ -165,5 +166,5 @@ print(coefTable, type = "html", comment = FALSE,  hline.after = c(1:10))
 Out of all the models tested, RIDGE seems to work the best for our analysis.
 Given that it is a shrinkage method, we notice that most coefficients except "Income", "Rating", "Limit" and "Student Status" have been zeroed out. We also notice that within these four, *Income* happens to be negatively affecting Balance which is understandable from an economic standpoint as more income would lead to less debt. The other are positive as given a higher *rating* and a higher *limit*, one can take on more debt. And finally, being a *student* with no income can lead to having higher debt on average than someone who is not a student.
 
-Finally, if one had to predict how such variables might affect one's Balance, this Ridge model would be best at making this predicition.
+Therefore, if one had to predict how such variables might affect one's Balance, this Ridge model would be best at making this predicition.
 
