@@ -19,8 +19,8 @@ test_that("x.train is 300x11",{
   expect_equal(nrow(x.train), 300)
 })
 test_that("y.train is 300x1",{
-  expect_equal(ncol(y.test), 1)
-  expect_equal(nrow(y.test), 300)
+  expect_equal(ncol(y.train), 1)
+  expect_equal(nrow(y.train), 300)
 })
 
 context("ensure models are built correctly")
@@ -29,7 +29,7 @@ test_that("cvPcrMSE is a real number",{
   expect_is(cvPcrMSE, "numeric")
 })
 test_that("bestPCR is a real number",{
-  expect_is(bestPCR, "numeric")
+  expect_is(bestPCR, "integer")
 })
 
 

@@ -1,5 +1,5 @@
 # ridge tests
-
+# setwd("Desktop/Dakota/stat159-fall2016-project2")
 library(testthat)
 source("code/functions/ridge-model.R")
 
@@ -21,8 +21,8 @@ test_that("x.train is 300x11",{
   expect_equal(nrow(x.train), 300)
 })
 test_that("y.train is 300x1",{
-  expect_equal(ncol(y.test), 1)
-  expect_equal(nrow(y.test), 300)
+  expect_equal(ncol(y.train), 1)
+  expect_equal(nrow(y.train), 300)
 })
 
 context("ensure models are built correctly")
